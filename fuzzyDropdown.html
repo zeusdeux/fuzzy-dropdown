@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <link rel="stylesheet" href="fuzzyDropdown.css">
+</head>
+
+<body>
+  <select id="fuzzOptionsList">
+    <option value="1">Tapout Bail Bonds - 870, North 1st Street, San Jose (408-288-2245)
+    </option>
+    <option value="2">Four Seasons Cleaning Services - 6570 Grant Ct, Hollywood (954-961-2080)
+    </option>
+    <option value="3">Ike's Place - 3489 16th St, San Francisco (415-553-6888)
+    </option>
+    <option value="4">Coats Appraisal Services Inc - 10 main street, Conway (501-327-7301)
+    </option>
+    <option value="5">Schmitt Heating - 34, Woodward St, San Francisco (415-522-0966)
+    </option>
+    <option value="6">Larkin Plumbing - 1801, Industrial Rd, Las Vegas (702-382-2410)
+    </option>
+    <option value="7">Divine Moving &amp; Storage - 845, 3rd Ave, New York (212-244-4011)
+    </option>
+    <option value="8">Rulon T Burton &amp; Associates - 6000, Fashion Blvd, Murray (801-305-3702)
+    </option>
+    <option value="9">Lake Nona Dental Group - 10429, Moss Park Road, Orlando (407-277-1779)
+    </option>
+    <option value="10">Dentistry at Lake Nona - 10743, Narcoossee Road, Orlando (407-380-7734)
+    </option>
+    <option value="11">Arora Vinnie CPA - 7232, West Sand Lake Road, Orlando (407-248-9677)
+    </option>
+    <option value="12">Doc Thompson Plumbing - 1120, Venetian Way, Columbus (614-736-2001)
+    </option>
+    <option value="13">Saravana Bhavan - 1305, South Mary Avenue, Orlando (408-614-7755)
+    </option>
+    <option value="14">Saravana Bhavan - 1305, South Mary Avenue, Sunnyvale (408-616-7755)
+    </option>
+  </select>
+  <div id="fuzzSearch">
+    <div id="fuzzNameContainer">
+      <span class="fuzzName"></span>
+      <span class="fuzzArrow"></span>
+    </div>
+    <div id="fuzzDropdownContainer">
+      <input type="text" value="" class="fuzzMagicBox" placeholder="search..">
+      <ul id="fuzzResults">
+      </ul>
+    </div>
+  </div>
+  <script src="./jquery.min.js"></script>
+  <script src="./fuse.min.js"></script>
+  <script src="./fuzzyDropdown.js"></script>
+  <script>
+  $('#fuzzOptionsList').fuzzyDropdown({
+    mainContainer: '#fuzzSearch',
+    arrowUpClass: 'fuzzArrowUp'
+  });
+  </script>
+</body>
+
+</html>
