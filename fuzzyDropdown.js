@@ -2,14 +2,13 @@
 
   function makeList2Json(iterable) {
     var locationArr = [];
-    var currentRecord = {};
     var $this;
     $.each(iterable, function() {
       $this = $(this);
-      currentRecord = {};
-      currentRecord.value = $this.val();
-      currentRecord.text = $this.text().trim();
-      locationArr.push(currentRecord);
+      locationArr.push({
+        value: $this.val(),
+        text: $this.text().trim()
+      });
     });
     return locationArr;
   }
@@ -22,31 +21,32 @@
    * - threshold: { float between 0 and 1. Control fuse's fuzzy threshold}
    */
   $.fn.fuzzyDropdown = function(options) {
-    var _opts = $.extend({}, options);
-    var $this = $(this);
+    var _opts           = $.extend({}, options);
+    var $this           = $(this);
     var $currentSelected;
-    var $mainContainer = $(_opts.mainContainer);
+    var $mainContainer  = $(_opts.mainContainer);
     var $currentValCont = $($mainContainer.children('div')[0]);
     var $currentValSpan = $currentValCont.children('span:first');
-    var $arrowSpan = $($currentValCont.children('span')[1]);
-    var $dropdownCont = $($mainContainer.children('div')[1]);
-    var $searchInput = $($dropdownCont.children('input:first'));
-    var $dropdownUL = $($dropdownCont.children('ul:first'));
+    var $arrowSpan      = $($currentValCont.children('span')[1]);
+    var $dropdownCont   = $($mainContainer.children('div')[1]);
+    var $searchInput    = $dropdownCont.children('input:first');
+    var $dropdownUL     = $dropdownCont.children('ul:first');
     var $lis;
-    var list = $this.children('option');
-    var locations = makeList2Json(list);
-    var noResultsId = +new Date() + '-no-results-found';
+    var list            = $this.children('option');
+    var locations       = makeList2Json(list);
+    var noResultsId     = +new Date() + '-no-results-found';
     var html;
-    var fuse = new Fuse(locations, {
-      keys: ['text'],
-      id: 'value',
-      threshold: _opts.threshold || 0.61,
-      shouldSort: true,
-      distance: 100,
-      maxPatternLength: 64
-    });
+    var fuse            = new Fuse(locations, {
+                            keys: ['text'],
+                            id: 'value',
+                            threshold: _opts.threshold || 0.61,
+                            shouldSort: true,
+                            distance: 120,
+                            maxPatternLength: 64
+                          });
 
     console.debug('fuzzyDropdown: threshold is '+_opts.threshold);
+
     //hide the select box
     $this.hide();
 
@@ -90,7 +90,7 @@
     //add handler for search function
     $searchInput.keyup(function(evt) {
       var $this = $(this);
-      var val = $this.val();
+      var val   = $this.val();
       var results;
       if (val === '') {
         $lis.css('display', 'list-item');
