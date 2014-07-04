@@ -1,5 +1,5 @@
 #fuzzSearch {
-  width: 100%;
+  width: 50%;
 }
 #fuzzNameContainer {
   height: 18px;
@@ -11,7 +11,7 @@
 }
 .fuzzName {
   display: inline-block;
-  width: 90%;
+  width: 96%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -24,6 +24,7 @@
   display: inline-block;
   cursor: pointer;
   position: relative;
+  top: 2px;
   -webkit-transition: all 0.1s ease-in;
   transition: all 0.1s ease-in;
 }
@@ -31,9 +32,8 @@
   border-top-color: #888;
 }
 .fuzzArrow.fuzzArrowUp {
-  -webkit-transform: rotateZ(180deg);
-  transform: rotateZ(180deg);
-  top: -7px;
+  border-color: transparent transparent #333 transparent;
+  top: -6px;
 }
 #fuzzDropdownContainer {
   display: none;
@@ -46,17 +46,6 @@
   width: 99%;
   height: 26px;
   margin: 0 auto;
-  padding: 0;
-}
-#fuzzListContainer {
-}
-#fuzzListContainer ul {
-  list-style: none;
-  margin: 10px 0;
-  padding: 0;
-}
-#fuzzListContainer ul li {
-  margin: 0 0 10px 0;
 }
 #fuzzOptionsList, #fuzzResults {
   cursor: pointer;
