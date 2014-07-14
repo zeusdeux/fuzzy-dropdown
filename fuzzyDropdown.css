@@ -1,13 +1,17 @@
+* {
+  box-sizing: border-box;
+}
 #fuzzSearch {
   width: 50%;
 }
 #fuzzNameContainer {
-  height: 18px;
-  padding: 4px;
+  height: 40px;
+  padding: 4px 10px;
   border: 1px solid #999;
   box-shadow: inset 0 0 2px 0px #333;
   width: 100%;
   cursor: pointer;
+  line-height: 1.9em;
 }
 .fuzzName {
   display: inline-block;
@@ -24,7 +28,7 @@
   display: inline-block;
   cursor: pointer;
   position: relative;
-  top: 2px;
+  top: -3px;
   -webkit-transition: all 0.1s ease-in;
   transition: all 0.1s ease-in;
 }
@@ -33,7 +37,7 @@
 }
 .fuzzArrow.fuzzArrowUp {
   border-color: transparent transparent #333 transparent;
-  top: -6px;
+  top: -11px;
 }
 #fuzzDropdownContainer {
   display: none;
@@ -41,11 +45,40 @@
   margin: 0 0 5px 0;
   border: 1px solid #999;
   padding: 12px 4px 4px;
+  position: relative;
 }
 .fuzzMagicBox {
   width: 99%;
   height: 26px;
   margin: 0 auto;
+}
+.fuzzSearchIcon {
+  width: 20px;
+  height: 30px;
+  position: relative;
+  display: inline-block;
+  background: transparent;
+  top: -20px;
+  left: 95%;
+}
+.fuzzSearchIcon:before, .fuzzSearchIcon:after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 5px;
+}
+.fuzzSearchIcon:before {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid #aaa;
+}
+.fuzzSearchIcon:after {
+  height: 7px;
+  border-right: 1px solid #aaa;
+  top: 9px;
+  -webkit-transform: rotate(-32deg);
+  -ms-transform: rotate(-32deg);
 }
 #fuzzOptionsList, #fuzzResults {
   cursor: pointer;
@@ -55,5 +88,5 @@
 }
 #fuzzResults li {
   list-style: none;
-  margin: 10px 0;
+  margin: 20px 0;
 }

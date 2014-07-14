@@ -1,0 +1,31 @@
+{
+  "name": "fuzzyDropdown",
+  "main": "fuzzyDropdown.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/zeusdeux/fuzzyDropdown",
+  "authors": [
+    "Mudit Ameta <zeusdeux@gmail.com>"
+  ],
+  "description": "Converts a select box into a fuzzy searchable dropdown.",
+  "keywords": [
+    "fuzzy",
+    "dropdown",
+    "select",
+    "approximate",
+    "string",
+    "search",
+    "match"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "fuse.min": "https://raw.githubusercontent.com/krisk/Fuse/master/src/fuse.min.js"
+  }
+}

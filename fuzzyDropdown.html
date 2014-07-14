@@ -43,13 +43,14 @@
       <span class="fuzzArrow"></span>
     </div>
     <div id="fuzzDropdownContainer">
-      <input type="text" value="" class="fuzzMagicBox" placeholder="search..">
+      <input type="text" value="" class="fuzzMagicBox" placeholder="search.." />
+      <span class="fuzzSearchIcon"></span>
       <ul id="fuzzResults">
       </ul>
     </div>
   </div>
-  <script src="./jquery.min.js"></script>
-  <script src="./fuse.min.js"></script>
+  <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="./bower_components/fuse.min/index.js"></script>
   <script src="./fuzzyDropdown.js"></script>
   <script>
     $('#fuzzOptionsList').fuzzyDropdown({

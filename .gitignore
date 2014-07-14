@@ -5,3 +5,6 @@ logs
 # Ignore sublime text stuff
 *.sublime*
 .DS_Store
+
+# Ignore bower components
+bower_components/*

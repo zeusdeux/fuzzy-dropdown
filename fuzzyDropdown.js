@@ -1,3 +1,7 @@
+/**
+ * Fuse - https://github.com/krisk/Fuse/blob/master/LICENSE
+ * fuzzyDropdown - https://github.com/zeusdeux/fuzzyDropdown/blob/master/LICENSE
+ **/
 (function($, Fuse) {
 
   function makeList2Json(iterable) {
@@ -12,13 +16,14 @@
     });
     return locationArr;
   }
+
   /**
    * Adds a fuzzy search enabled dropdown
    * @param  {Object} options
    * The options parameter takes the following values:
-   * - mainContainer: {a valid jQuery selector}
-   * - arrowUpClass: { class [optional]}
-   * - threshold: { float between 0 and 1. Control fuse's fuzzy threshold}
+   * - mainContainer: { a valid jQuery selector }
+   * - arrowUpClass: { css class }
+   * - threshold: { float between 0 and 1. Controls threshold for bitap in fuse }
    */
   $.fn.fuzzyDropdown = function(options) {
     var _opts           = $.extend({}, options);
@@ -37,21 +42,22 @@
     var noResultsId     = +new Date() + '-no-results-found';
     var html;
     var fuse            = new Fuse(locations, {
-                            keys: ['text'],
-                            id: 'value',
-                            threshold: _opts.threshold || 0.61,
-                            shouldSort: true,
-                            distance: 120,
-                            maxPatternLength: 64
-                          });
+                          keys: ['text'],
+                          id: 'value',
+                          threshold: _opts.threshold || 0.61,
+                          distance: 120,
+                          maxPatternLength: 64
+                        });
 
-    console.debug('fuzzyDropdown: threshold is '+_opts.threshold);
+    //if the select box has no options, just return and do nothing
+    if(!$this.children('option').length) return;
 
+    console.debug('fuzzyDropdown: threshold is ' + _opts.threshold);
     //hide the select box
     $this.hide();
 
     //show our container if hidden
-    if ($(_opts.mainContainer+':hidden').length){
+    if ($(_opts.mainContainer + ':hidden').length) {
       $mainContainer.show();
     }
 
@@ -77,20 +83,10 @@
     //store lis for future use
     $lis = $dropdownUL.children('li');
 
-    //set position values and width for the dropdown to appear correctly
-    $mainContainer.css('position', 'relative');
-    $dropdownCont.css('position', 'fixed');
-    $dropdownCont.width($currentValCont.width());
-
-    //resize the dropdown when window is resized
-    $(window).resize(function(){
-      $dropdownCont.width($currentValCont.width());
-    });
-
     //add handler for search function
     $searchInput.keyup(function(evt) {
       var $this = $(this);
-      var val   = $this.val();
+      var val = $this.val();
       var results;
       if (val === '') {
         $lis.css('display', 'list-item');
@@ -117,7 +113,9 @@
     });
 
     //add toggle dropdown function
-    $currentValCont.click(function() {
+    $currentValCont.click(function(evt) {
+      evt.preventDefault();
+      evt.stopPropagation();
       $arrowSpan.toggleClass(_opts.arrowUpClass);
       $dropdownCont.slideToggle(100);
       if ($dropdownCont.is(':visible')) $searchInput.focus();
@@ -129,7 +127,11 @@
       $currentValSpan.attr('data-val', $self.attr('data-val'));
       $currentValSpan.text($self.text());
       $this.children('option[value=' + $self.attr('data-val') + ']').attr('selected', 'selected').change();
-      $currentValCont.click();
+    });
+
+    //close dropdown on click anywhere on document body
+    $('body').click(function() {
+      if ($dropdownCont.is(':visible') && !$searchInput.is(':focus')) $currentValCont.click();
     });
   };
-})(jQuery, window.Fuse);
+})(window.jQuery, window.Fuse);
