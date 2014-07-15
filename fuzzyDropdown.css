@@ -80,10 +80,13 @@
   -webkit-transform: rotate(-32deg);
   -ms-transform: rotate(-32deg);
 }
-#fuzzOptionsList, #fuzzResults {
+#fuzzResults {
   cursor: pointer;
 }
-#fuzzOptionsList li:hover, #fuzzResults li:hover {
+#fuzzResults li:hover {
+  color: #aaa;
+}
+#fuzzResults li.selected {
   color: #aaa;
 }
 #fuzzResults li {

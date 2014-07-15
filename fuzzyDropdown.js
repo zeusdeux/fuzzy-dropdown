@@ -23,34 +23,35 @@
    * The options parameter takes the following values:
    * - mainContainer: { a valid jQuery selector }
    * - arrowUpClass: { css class }
+   * - selectedClass: { css class that is used when arrow keys are used to navigate options }
    * - threshold: { float between 0 and 1. Controls threshold for bitap in fuse }
    */
   $.fn.fuzzyDropdown = function(options) {
-    var _opts           = $.extend({}, options);
-    var $this           = $(this);
+    var _opts = $.extend({}, options);
+    var $this = $(this);
     var $currentSelected;
-    var $mainContainer  = $(_opts.mainContainer);
+    var $mainContainer = $(_opts.mainContainer);
     var $currentValCont = $($mainContainer.children('div')[0]);
     var $currentValSpan = $currentValCont.children('span:first');
-    var $arrowSpan      = $($currentValCont.children('span')[1]);
-    var $dropdownCont   = $($mainContainer.children('div')[1]);
-    var $searchInput    = $dropdownCont.children('input:first');
-    var $dropdownUL     = $dropdownCont.children('ul:first');
+    var $arrowSpan = $($currentValCont.children('span')[1]);
+    var $dropdownCont = $($mainContainer.children('div')[1]);
+    var $searchInput = $dropdownCont.children('input:first');
+    var $dropdownUL = $dropdownCont.children('ul:first');
     var $lis;
-    var list            = $this.children('option');
-    var locations       = makeList2Json(list);
-    var noResultsId     = +new Date() + '-no-results-found';
+    var list = $this.children('option');
+    var locations = makeList2Json(list);
+    var noResultsId = +new Date() + '-no-results-found';
     var html;
-    var fuse            = new Fuse(locations, {
-                          keys: ['text'],
-                          id: 'value',
-                          threshold: _opts.threshold || 0.61,
-                          distance: 120,
-                          maxPatternLength: 64
-                        });
+    var fuse = new Fuse(locations, {
+      keys: ['text'],
+      id: 'value',
+      threshold: _opts.threshold || 0.61,
+      distance: 120,
+      maxPatternLength: 64
+    });
 
     //if the select box has no options, just return and do nothing
-    if(!$this.children('option').length) return;
+    if (!$this.children('option').length) return;
 
     console.debug('fuzzyDropdown: threshold is ' + _opts.threshold);
     //hide the select box
@@ -112,6 +113,11 @@
       }
     });
 
+    //removes the selectedClass from li item that has it
+    function clearSelectedClass(){
+      $dropdownUL.children('.' + _opts.selectedClass).removeClass(_opts.selectedClass);
+    }
+
     //add toggle dropdown function
     $currentValCont.click(function(evt) {
       evt.preventDefault();
@@ -119,6 +125,7 @@
       $arrowSpan.toggleClass(_opts.arrowUpClass);
       $dropdownCont.slideToggle(100);
       if ($dropdownCont.is(':visible')) $searchInput.focus();
+      clearSelectedClass();
     });
 
     //add handlers for click on li
@@ -132,6 +139,86 @@
     //close dropdown on click anywhere on document body
     $('body').click(function() {
       if ($dropdownCont.is(':visible') && !$searchInput.is(':focus')) $currentValCont.click();
+    });
+
+    //clear selected class on search input focus
+    $searchInput.focus(function() {
+      clearSelectedClass();
+    });
+
+    //add up, down arrow keys functionality
+    //move to first visible item when down arrow is pressed in the search box
+    $searchInput.keydown(function(e) {
+      e.stopPropagation();
+      clearSelectedClass();
+      //if no results, return
+      if ($dropdownUL.children(':visible:first').get(0) === $('#' + noResultsId).get(0)) {
+        clearSelectedClass();
+        return;
+      }
+      if (e.keyCode === 40) {
+        $dropdownUL.children(':visible:first').addClass(_opts.selectedClass);
+        $searchInput.blur();
+      }
+    });
+
+    //arrows and enter handling on the list items
+    $dropdownUL.on('keydown', 'li', function(e) {
+      var $this = $(this);
+      var isFirst = $dropdownUL.children(':visible:first').get(0) === $this.get(0);
+      var isLast = $dropdownUL.children(':visible:last').get(0) === $this.get(0);
+      var $next = $this.next();
+      var $prev = $this.prev();
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      //if it's the first option and up arrow is pressed, goto search input
+      if (isFirst && e.keyCode === 38) {
+        $this.removeClass(_opts.selectedClass);
+        $searchInput.focus().select();
+        return;
+      }
+
+      //if it'the last option and the down arrow is pressed, go back to first item
+      if (isLast && e.keyCode === 40) {
+        //ignore down arrow on last item
+        return;
+      }
+
+      //if arrow down then find the next visible item and move down to it
+      if (e.keyCode === 40) {
+        $this.removeClass(_opts.selectedClass);
+        while (!$next.is(':visible')) {
+          $next = $next.next();
+        }
+        $next.addClass(_opts.selectedClass);
+        return;
+      }
+
+      //if arrow up then find the prev visible item and move up to it
+      if (e.keyCode === 38) {
+        $this.removeClass(_opts.selectedClass);
+        while (!$prev.is(':visible')) {
+          $prev = $prev.prev();
+        }
+        $prev.addClass(_opts.selectedClass);
+        return;
+      }
+
+      //trigger click on enter
+      if (e.keyCode === 13) $this.click();
+
+    });
+
+    //if the dropdown list is visible, proxy all arrow up, down and enter key presses there
+    $('body').on('keydown', function(e) {
+      var evt;
+      if ($dropdownCont.is(':visible') && (e.keyCode === 38 || e.keyCode === 40 || e.keyCode === 13)) {
+        evt = $.Event('keydown');
+        evt.keyCode = e.keyCode;
+        $dropdownUL.children('.selected').trigger(evt);
+      }
     });
   };
 })(window.jQuery, window.Fuse);
