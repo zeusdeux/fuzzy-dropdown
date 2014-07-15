@@ -217,7 +217,7 @@
       if ($dropdownCont.is(':visible') && (e.keyCode === 38 || e.keyCode === 40 || e.keyCode === 13)) {
         evt = $.Event('keydown');
         evt.keyCode = e.keyCode;
-        $dropdownUL.children('.selected').trigger(evt);
+        $dropdownUL.children(_opts.selectedClass).trigger(evt);
       }
     });
   };
