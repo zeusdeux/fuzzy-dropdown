@@ -210,6 +210,10 @@
     $('body').on('keydown', function(e) {
       var evt;
       if ($dropdownCont.is(':visible') && (e.keyCode === 38 || e.keyCode === 40 || e.keyCode === 13)) {
+        //prevent browser scroll on arrow up and down
+        e.preventDefault();
+        e.stopPropagation();
+        //prepare event to trigger on item
         evt = $.Event('keydown');
         evt.keyCode = e.keyCode;
         $dropdownUL.children('.'+_opts.selectedClass).trigger(evt);
