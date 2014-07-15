@@ -141,11 +141,6 @@
       if ($dropdownCont.is(':visible') && !$searchInput.is(':focus')) $currentValCont.click();
     });
 
-    //clear selected class on search input focus
-    $searchInput.focus(function() {
-      clearSelectedClass();
-    });
-
     //add up, down arrow keys functionality
     //move to first visible item when down arrow is pressed in the search box
     $searchInput.keydown(function(e) {
@@ -217,7 +212,7 @@
       if ($dropdownCont.is(':visible') && (e.keyCode === 38 || e.keyCode === 40 || e.keyCode === 13)) {
         evt = $.Event('keydown');
         evt.keyCode = e.keyCode;
-        $dropdownUL.children(_opts.selectedClass).trigger(evt);
+        $dropdownUL.children('.'+_opts.selectedClass).trigger(evt);
       }
     });
   };
