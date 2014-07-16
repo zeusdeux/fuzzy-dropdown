@@ -46,7 +46,7 @@
       keys: ['text'],
       id: 'value',
       threshold: _opts.threshold || 0.61,
-      distance: 120,
+      distance: 110,
       maxPatternLength: 64
     });
 

@@ -1,7 +1,7 @@
 {
   "name": "fuzzyDropdown",
   "main": "fuzzyDropdown.js",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "homepage": "https://github.com/zeusdeux/fuzzyDropdown",
   "authors": [
     "Mudit Ameta <zeusdeux@gmail.com>"
@@ -26,6 +26,6 @@
   ],
   "dependencies": {
     "jquery": "~2.1.1",
-    "fuse.min": "https://raw.githubusercontent.com/krisk/Fuse/master/src/fuse.min.js"
+    "fuse": "1.1.5"
   }
 }
