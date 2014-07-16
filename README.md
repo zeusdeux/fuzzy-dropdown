@@ -5,11 +5,15 @@ Converts a select box into a fuzzy searchable dropdown (using https://github.com
 
 ## Installation
 
-`bower install fuzzyDropdown`
+```
+bower install fuzzyDropdown
+```
 
 or
 
-`git clone git@github.com:zeusdeux/fuzzyDropdown.git`
+```
+git clone git@github.com:zeusdeux/fuzzyDropdown.git
+```
 
 ## Usage
 
