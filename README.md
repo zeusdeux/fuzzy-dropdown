@@ -6,6 +6,10 @@ Converts a select box into a fuzzy searchable dropdown (using https://github.com
 Hence you can add event handlers to the `select` box like before and have everything *just work*.   
 Also, the dropdown is fully navigable via arrow keys.   
 Look at the example in the `examples/` directory for usage.
+Need a demo? Take two!
+
+- [Demo 1](http://experiments.muditameta.com/fuzzyDropdown/)
+- [Demo 2](http://experiments.muditameta.com/fuzzyDropdown2/)
 
 ## Changelog
 
@@ -41,8 +45,6 @@ git clone git@github.com:zeusdeux/fuzzyDropdown.git
 ```
 
 ## Usage
-
-For a demo, go [here](http://experiments.muditameta.com/fuzzyDropdown/).
 
 ### The javascript
 
