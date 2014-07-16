@@ -1,15 +1,22 @@
 fuzzyDropdown
 =============
 
-Converts a select box into a fuzzy searchable dropdown (using https://github.com/krisk/fuse).
-The dropdown is fully navigable via arrow keys.
+Converts a select box into a fuzzy searchable dropdown (using https://github.com/krisk/fuse).   
+`fuzzyDropdown` proxies your interactions to the underlying `select` box.   
+Hence you can add event handlers to the `select` box like before and have everything *just work*.   
+Also, the dropdown is fully navigable via arrow keys.   
 Look at the example in the `examples/` directory for usage.
+
+## Changelog
+
+### 0.0.7
+- Minor bugfixes, code reorganisation and Makefile addition
 
 ## Installation
 
 #### Recommended installation method
 
-```
+```javascript
 bower install fuzzyDropdown
 ```
 
@@ -17,8 +24,12 @@ bower install fuzzyDropdown
 
 This/these method(s) will not install the dependencies (jQuery and Fuse.js). You will have to install them manually and include them before including `fuzzyDropdown`. (Use bower, it's simpler).
 
-```
+```javascript
+//via github
 git clone git@github.com:zeusdeux/fuzzyDropdown.git
+
+//via jquery plugins
+//goto: http://plugins.jquery.com/fuzzyDropdown and download it from there.
 ```
 
 ## Usage
