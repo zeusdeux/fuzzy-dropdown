@@ -24,11 +24,14 @@
    * - mainContainer: { a valid jQuery selector }
    * - arrowUpClass: { css class }
    * - selectedClass: { css class that is used when arrow keys are used to navigate options }
+   * - enableBrowserDefaultScroll: { boolean }
    * - threshold: { float between 0 and 1. Controls threshold for bitap in fuse }
    * - other options that are accepted by Fuse
    */
   $.fn.fuzzyDropdown = function(options) {
-    var _opts           = $.extend({}, options);
+    var _opts           = $.extend({
+                            enableBrowserDefaultScroll: false
+                          }, options);
     var $this           = $(this);
     var $currentSelected;
     var $mainContainer  = $(_opts.mainContainer);
@@ -215,8 +218,8 @@
     $('body').on('keydown', function(e) {
       var evt;
       if ($dropdownCont.is(':visible') && (e.keyCode === 38 || e.keyCode === 40 || e.keyCode === 13)) {
-        //prevent browser scroll on arrow up and down
-        e.preventDefault();
+        //disable browser scroll on arrow up and down if flag disabled
+        if (!_opts.enableBrowserDefaultScroll) e.preventDefault();
         e.stopPropagation();
         //prepare event to trigger on item
         evt = $.Event('keydown');
