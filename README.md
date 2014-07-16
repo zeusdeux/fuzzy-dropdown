@@ -64,7 +64,7 @@ git clone git@github.com:zeusdeux/fuzzyDropdown.git
 - `mainContainer` : This is the jQuery selector for the parent container
 - `arrowUpClass`: Even the arrows are drawn via css and this is the class name that shows the arrow facing up
 - `selectedClass`: Name of the css class that will be used to highlight dropdown items when arrow keys are used to navigate them. It is usually the same as your dropdown list item :hover style.
-- `enableBrowserDefaultScroll`: A boolean value that enables or disables normal browser behaviour (scroll up and down) on arrow up and down presses. You might want to set this to `true` if you have a list that longer than the current viewport height.
+- `enableBrowserDefaultScroll`: A boolean value that enables or disables normal browser behaviour (scroll up and down) on arrow up and down presses. You might want to set this to `true` if you have a list that is longer than the current viewport height.
 - Options for Fuse except `searchFn`, `getFn` and `sortFn`. `fuzzyDropdown` defers to the defaults used by Fuse for these options.
 
 ```javascript
