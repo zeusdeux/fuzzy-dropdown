@@ -25,30 +25,35 @@
    * - arrowUpClass: { css class }
    * - selectedClass: { css class that is used when arrow keys are used to navigate options }
    * - threshold: { float between 0 and 1. Controls threshold for bitap in fuse }
+   * - other options that are accepted by Fuse
    */
   $.fn.fuzzyDropdown = function(options) {
-    var _opts = $.extend({}, options);
-    var $this = $(this);
+    var _opts           = $.extend({}, options);
+    var $this           = $(this);
     var $currentSelected;
-    var $mainContainer = $(_opts.mainContainer);
+    var $mainContainer  = $(_opts.mainContainer);
     var $currentValCont = $($mainContainer.children('div')[0]);
     var $currentValSpan = $currentValCont.children('span:first');
-    var $arrowSpan = $($currentValCont.children('span')[1]);
-    var $dropdownCont = $($mainContainer.children('div')[1]);
-    var $searchInput = $dropdownCont.children('input:first');
-    var $dropdownUL = $dropdownCont.children('ul:first');
+    var $arrowSpan      = $($currentValCont.children('span')[1]);
+    var $dropdownCont   = $($mainContainer.children('div')[1]);
+    var $searchInput    = $dropdownCont.children('input:first');
+    var $dropdownUL     = $dropdownCont.children('ul:first');
     var $lis;
-    var list = $this.children('option');
-    var locations = makeList2Json(list);
-    var noResultsId = +new Date() + '-no-results-found';
+    var list            = $this.children('option');
+    var locations       = makeList2Json(list);
+    var noResultsId     = +new Date() + '-no-results-found';
     var html;
-    var fuse = new Fuse(locations, {
-      keys: ['text'],
-      id: 'value',
-      threshold: _opts.threshold || 0.61,
-      distance: 110,
-      maxPatternLength: 64
-    });
+    var fuse            = new Fuse(locations, {
+                            keys: ['text'],
+                            id: 'value',
+                            location: _opts.location || 0,
+                            threshold: _opts.threshold || 0.61,
+                            distance: _opts.distance || 110,
+                            maxPatternLength: _opts.maxPatternLength || 64,
+                            caseSensitive: _opts.caseSensitive || false,
+                            includeScore: _opts.includeScore || false,
+                            shouldSort: _opts.shouldSort || true
+                          });
 
     //if the select box has no options, just return and do nothing
     if (!$this.children('option').length) return;
@@ -114,7 +119,7 @@
     });
 
     //removes the selectedClass from li item that has it
-    function clearSelectedClass(){
+    function clearSelectedClass() {
       $dropdownUL.children('.' + _opts.selectedClass).removeClass(_opts.selectedClass);
     }
 
@@ -216,7 +221,7 @@
         //prepare event to trigger on item
         evt = $.Event('keydown');
         evt.keyCode = e.keyCode;
-        $dropdownUL.children('.'+_opts.selectedClass).trigger(evt);
+        $dropdownUL.children('.' + _opts.selectedClass).trigger(evt);
       }
     });
   };
