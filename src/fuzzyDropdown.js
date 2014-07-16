@@ -48,7 +48,7 @@
                             id: 'value',
                             location: _opts.location || 0,
                             threshold: _opts.threshold || 0.61,
-                            distance: _opts.distance || 110,
+                            distance: _opts.distance || 100,
                             maxPatternLength: _opts.maxPatternLength || 64,
                             caseSensitive: _opts.caseSensitive || false,
                             includeScore: _opts.includeScore || false,

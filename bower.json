@@ -1,7 +1,7 @@
 {
   "name": "fuzzyDropdown",
   "main": "fuzzyDropdown.js",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "homepage": "https://github.com/zeusdeux/fuzzyDropdown",
   "authors": [
     "Mudit Ameta <zeusdeux@gmail.com>"

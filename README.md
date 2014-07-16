@@ -9,6 +9,12 @@ Look at the example in the `examples/` directory for usage.
 
 ## Changelog
 
+### 0.0.9
+- Minor bugfixes, code rearrangement
+
+### 0.0.8
+- Minor bugfixes, code rearrangement
+
 ### 0.0.7
 - Minor bugfixes, code reorganisation and Makefile addition
 
