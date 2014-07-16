@@ -26,6 +26,6 @@
   ],
   "dependencies": {
     "jquery": "~2.1.1",
-    "fuse": "1.1.5"
+    "fuse": "~1.1.5"
   }
 }

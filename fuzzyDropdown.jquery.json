@@ -1,0 +1,31 @@
+{
+  "name": "fuzzyDropdown",
+  "title": "fuzzyDropdown",
+  "description": "Converts a select box into a fuzzy searchable dropdown.",
+  "keywords": [
+    "fuzzy",
+    "dropdown",
+    "select",
+    "approximate",
+    "string",
+    "search",
+    "match"
+  ],
+  "demo": "http://experiments.muditameta.com/fuzzyDropdown/",
+  "version": "0.0.7",
+  "author": {
+    "name": "Mudit Ameta",
+    "url": "http://www.muditameta.com/"
+  },
+  "licenses": [{
+    "type": "MIT",
+    "url": "https://github.com/zeusdeux/fuzzyDropdown/blob/master/LICENSE"
+  }],
+  "bugs": "https://github.com/zeusdeux/fuzzyDropdown/issues",
+  "homepage": "https://github.com/zeusdeux/fuzzyDropdown",
+  "docs": "https://github.com/zeusdeux/fuzzyDropdown",
+  "dependencies": {
+    "jquery": ">=1.8",
+    "Fuse": "~1.1.5"
+  }
+}

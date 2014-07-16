@@ -2,6 +2,8 @@ fuzzyDropdown
 =============
 
 Converts a select box into a fuzzy searchable dropdown (using https://github.com/krisk/fuse).
+The dropdown is fully navigable via arrow keys.
+Look at the example in the `examples/` directory for usage.
 
 ## Installation
 
@@ -22,6 +24,23 @@ git clone git@github.com:zeusdeux/fuzzyDropdown.git
 ## Usage
 
 For a demo, go [here](http://experiments.muditameta.com/fuzzyDropdown/).
+
+### The javascript
+
+`fuzzyDropdown` takes the following parameters:
+
+- `mainContainer` : This is the jQuery selector for the parent container
+- `arrowUpClass`: Even the arrows are drawn via css and this is the class name that shows the arrow facing up
+- `selectedClass`: Name of the css class that will be used to highlight dropdown items when arrow keys are used to navigate them. It is usually the same as your dropdown list item :hover style.
+- Options for Fuse except `searchFn`, `getFn` and `sortFn`. `fuzzyDropdown` defers to the defaults used by Fuse for these options.
+
+```javascript
+$('#fuzzOptionsList').fuzzyDropdown({
+  mainContainer: '#fuzzSearch',
+  arrowUpClass: 'fuzzArrowUp',
+  selectedClass: 'selected'
+});
+```
 
 ### The markup
 
@@ -48,13 +67,13 @@ For a demo, go [here](http://experiments.muditameta.com/fuzzyDropdown/).
 
 #### Note:
 
-- You can use any class names or ids. The ones in the example above are just the ones that I've used in `fuzzyDropdown.html`.
+- You can use any class names or ids. The ones in the example above are just the ones that I've used in `examples/fuzzyDropdown.html`.
 
 ### The styling
 
 `fuzzyDropdown` by itself does no styling. All the styling is controlled via css.
 
-This gives you complete freedom to style your dropdown however you want and it'll still *just work*.
+This gives you complete freedom to style your dropdown however you want and it'll still *just work*. Below is some example css.
 
 ```css
 * {
@@ -152,23 +171,6 @@ This gives you complete freedom to style your dropdown however you want and it'l
   list-style: none;
   margin: 20px 0;
 }
-```
-
-### The javascript
-
-`fuzzyDropdown` takes the following parameters:
-
-- `mainContainer` : This is the jQuery selector for the parent container
-- `arrowUpClass`: Even the arrows are drawn via css and this is the class name that shows the arrow facing up
-- `selectedClass`: Name of the css class that will be used to highlight dropdown items when arrow keys are used to navigate them. It is usually the same as your dropdown list item :hover style.
-- Options for Fuse except `searchFn`, `getFn` and `sortFn`. `fuzzyDropdown` defers to the defaults used by Fuse for these options.
-
-```javascript
-$('#fuzzOptionsList').fuzzyDropdown({
-  mainContainer: '#fuzzSearch',
-  arrowUpClass: 'fuzzArrowUp',
-  selectedClass: 'selected'
-});
 ```
 
 And you're done!

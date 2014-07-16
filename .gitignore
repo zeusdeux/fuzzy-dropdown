@@ -4,6 +4,8 @@ logs
 
 # Ignore sublime text stuff
 *.sublime*
+
+# Apple stuff
 .DS_Store
 
 # Ignore bower components

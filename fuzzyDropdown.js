@@ -1,6 +1,6 @@
 /**
- * Fuse - https://github.com/krisk/Fuse/blob/master/LICENSE
- * fuzzyDropdown - https://github.com/zeusdeux/fuzzyDropdown/blob/master/LICENSE
+ * @license Fuse - https://github.com/krisk/Fuse/blob/master/LICENSE
+ * @license fuzzyDropdown - https://github.com/zeusdeux/fuzzyDropdown/blob/master/LICENSE
  **/
 (function($, Fuse) {
 
@@ -129,7 +129,7 @@
       evt.stopPropagation();
       $arrowSpan.toggleClass(_opts.arrowUpClass);
       $dropdownCont.slideToggle(100);
-      if ($dropdownCont.is(':visible')) $searchInput.focus();
+      if ($dropdownCont.is(':visible')) $searchInput.focus().select();
       clearSelectedClass();
     });
 
