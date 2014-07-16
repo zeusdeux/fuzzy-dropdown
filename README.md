@@ -28,7 +28,7 @@ bower install fuzzyDropdown
 
 #### Other methods
 
-This/these method(s) will not install the dependencies (jQuery and Fuse.js). You will have to install them manually and include them before including `fuzzyDropdown`. (Use bower, it's simpler).
+These methods will not install the dependencies (jQuery and Fuse.js). You will have to install them manually and include them before including `fuzzyDropdown`. (Use bower, it's simpler).
 
 ```javascript
 //via github
