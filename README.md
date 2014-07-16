@@ -5,7 +5,7 @@ Converts a select box into a fuzzy searchable dropdown (using https://github.com
 
 ## Installation
 
-#### Recommended installation method:
+#### Recommended installation method
 
 ```
 bower install fuzzyDropdown
