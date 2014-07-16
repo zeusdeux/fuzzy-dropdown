@@ -2,6 +2,14 @@ fuzzyDropdown
 =============
 
 Converts a select box into a fuzzy searchable dropdown (using https://github.com/krisk/fuse).   
+
+##What is fuzzy string matching/searching?
+
+> In computer science, approximate string matching (often colloquially referred to as fuzzy string searching)
+> is the technique of finding strings that match a pattern approximately (rather than exactly). - Wikipedia   
+
+##Back to your regularly scheduled readme
+
 `fuzzyDropdown` proxies your interactions to the underlying `select` box.   
 Hence you can add event handlers to the `select` box like before and have everything *just work*.   
 Also, the dropdown is fully navigable via arrow keys.   
