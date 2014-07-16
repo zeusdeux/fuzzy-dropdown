@@ -5,11 +5,15 @@ Converts a select box into a fuzzy searchable dropdown (using https://github.com
 
 ## Installation
 
+#### Recommended installation method:
+
 ```
 bower install fuzzyDropdown
 ```
 
-or
+#### Other methods
+
+This/these method(s) will not install the dependencies (jQuery and Fuse.js). You will have to install them manually and include them before including `fuzzyDropdown`. (Use bower, it's simpler).
 
 ```
 git clone git@github.com:zeusdeux/fuzzyDropdown.git
