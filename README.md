@@ -90,7 +90,7 @@ $('#fuzzOptionsList').fuzzyDropdown({
 
 `fuzzyDropdown` by itself does no styling. All the styling is controlled via css.
 
-This gives you complete freedom to style your dropdown however you want and it'll still *just work*. Below is some example css.
+This gives you complete freedom to style your dropdown however you want and it'll all *just work*. Below is some example css.
 
 ```css
 * {
