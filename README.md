@@ -36,6 +36,8 @@ git clone git@github.com:zeusdeux/fuzzyDropdown.git
 
 //via jquery plugins
 //goto: http://plugins.jquery.com/fuzzyDropdown and download it from there.
+
+//download src/fuzzyDropdown.min.js and include it after jQuery and Fuse in your markup
 ```
 
 ## Usage
