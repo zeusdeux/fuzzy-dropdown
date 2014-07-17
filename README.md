@@ -59,7 +59,11 @@ git clone git@github.com:zeusdeux/fuzzyDropdown.git
 
 ### The javascript
 
-`fuzzyDropdown` takes the following parameters:
+```javascript
+$( your_select_box_selector ).fuzzyDropdown ( options );
+```
+
+`fuzzyDropdown` takes the following options:
 
 - `mainContainer` : This is the jQuery selector for the parent container
 - `arrowUpClass`: Even the arrows are drawn via css and this is the class name that shows the arrow facing up
