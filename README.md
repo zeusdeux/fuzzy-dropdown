@@ -1,7 +1,7 @@
 fuzzyDropdown
 =============
 
-Converts a select box into a fuzzy searchable dropdown (using https://github.com/krisk/fuse).   
+`fuzzyDropdown` is a jQuery plugin that converts a select box into a fuzzy searchable dropdown (using https://github.com/krisk/fuse).   
 
 ####What is fuzzy string matching/searching?
 
