@@ -141,7 +141,8 @@
       var $self = $(this);
       $currentValSpan.attr('data-val', $self.attr('data-val'));
       $currentValSpan.text($self.text());
-      $this.children('option[value=' + $self.attr('data-val') + ']').attr('selected', 'selected').change();
+      $this.find('option:selected').prop('selected', false);
+      $this.children('option[value=' + $self.attr('data-val') + ']').prop('selected', true).change();
     });
 
     //close dropdown on click anywhere on document body
