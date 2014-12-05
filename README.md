@@ -1,18 +1,18 @@
 fuzzyDropdown
 =============
 
-`fuzzyDropdown` is a jQuery plugin that converts a select box into a fuzzy searchable dropdown (using https://github.com/krisk/fuse).   
+`fuzzyDropdown` is a jQuery plugin that converts a select box into a fuzzy searchable dropdown (using https://github.com/krisk/fuse).
 
 ####What is fuzzy string matching/searching?
 
 > In computer science, approximate string matching (often colloquially referred to as fuzzy string searching)
-> is the technique of finding strings that match a pattern approximately (rather than exactly). - Wikipedia   
+> is the technique of finding strings that match a pattern approximately (rather than exactly). - Wikipedia
 
 ####Back to your regularly scheduled readme
 
-`fuzzyDropdown` proxies your interactions to the underlying `select` box.   
-Hence you can add event handlers to the `select` box like before and have everything *just work*.   
-Also, the dropdown is fully navigable via arrow keys.   
+`fuzzyDropdown` proxies your interactions to the underlying `select` box.
+Hence you can add event handlers to the `select` box like before and have everything *just work*.
+Also, the dropdown is fully navigable via arrow keys.
 Look at the example in the `examples/` directory for usage.
 Need a demo? Take two!
 
@@ -20,6 +20,9 @@ Need a demo? Take two!
 - [Demo 2](http://experiments.muditameta.com/fuzzyDropdown2/)
 
 ## Changelog
+
+### 0.0.11
+- Bugfixes
 
 ### 0.0.10
 - Added the `enableBrowserDefaultScroll` option
