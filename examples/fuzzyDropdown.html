@@ -50,14 +50,14 @@
     </div>
   </div>
   <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="../bower_components/fuse/src/fuse.min.js"></script>
-  <script src="../src/fuzzyDropdown.min.js"></script>
+  <script src="../dist/fuzzy-dropdown.min.js"></script>
   <script>
     $('#fuzzOptionsList').fuzzyDropdown({
       mainContainer: '#fuzzSearch',
       arrowUpClass: 'fuzzArrowUp',
       selectedClass: 'selected',
-      enableBrowserDefaultScroll: true
+      enableBrowserDefaultScroll: true,
+      highlightClass: 'highlight'
     });
   </script>
 </body>

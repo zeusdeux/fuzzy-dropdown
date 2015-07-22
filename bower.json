@@ -1,7 +1,7 @@
 {
   "name": "fuzzyDropdown",
   "main": "fuzzyDropdown.js",
-  "version": "0.0.11",
+  "version": "1.0.0",
   "homepage": "https://github.com/zeusdeux/fuzzyDropdown",
   "authors": [
     "Mudit Ameta <zeusdeux@gmail.com>"
@@ -25,7 +25,7 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.1.1",
-    "fuse": "~1.1.5"
+    "jquery": ">=1.8.x",
+    "subsequence-search": "~1.0.1"
   }
 }

@@ -1,0 +1,43 @@
+{
+  "name": "fuzzy-dropdown",
+  "version": "1.0.0",
+  "description": "Converts a select box into a fuzzy searchable dropdown.",
+  "main": "src/fuzzy-dropdown.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zeusdeux/fuzzy-dropdown.git"
+  },
+  "keywords": [
+    "fuzzy",
+    "dropdown",
+    "select",
+    "approximate",
+    "string",
+    "search",
+    "match",
+    "jquery-plugin",
+    "ecosystem:jquery"
+  ],
+  "author": "Mudit Ameta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zeusdeux/fuzzy-dropdown/issues"
+  },
+  "homepage": "https://github.com/zeusdeux/fuzzy-dropdown#readme",
+  "dependencies": {
+    "subsequence-search": "^1.0.1"
+  },
+  "peerDependencies": {
+    "jquery": ">= 1.x"
+  },
+  "devDependencies": {
+    "browserify": "^11.0.0",
+    "uglify-js": "^2.4.23"
+  }
+}

@@ -10,3 +10,7 @@ logs
 
 # Ignore bower components
 bower_components/*
+
+node_modules
+
+.tern-port

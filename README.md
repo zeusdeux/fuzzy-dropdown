@@ -1,25 +1,27 @@
-fuzzyDropdown
-=============
+fuzzy-dropdown
+==============
 
-`fuzzyDropdown` is a jQuery plugin that converts a select box into a fuzzy searchable dropdown (using https://github.com/krisk/fuse).
+`fuzzy-dropdown` is a jQuery plugin that converts a select box into a fuzzy searchable dropdown (using ~~https://github.com/krisk/fuse~~ *[subsequence-search](https://github.com/zeusdeux/subsequence-search)*).
 
-####What is fuzzy string matching/searching?
+#### What is fuzzy string matching/searching?
 
 > In computer science, approximate string matching (often colloquially referred to as fuzzy string searching)
 > is the technique of finding strings that match a pattern approximately (rather than exactly). - Wikipedia
 
-####Back to your regularly scheduled readme
+#### Now, back to your regularly scheduled readme
 
-`fuzzyDropdown` proxies your interactions to the underlying `select` box.
+`fuzzy-dropdown` proxies your interactions to the underlying `select` box.
 Hence you can add event handlers to the `select` box like before and have everything *just work*.
 Also, the dropdown is fully navigable via arrow keys.
-Look at the example in the `examples/` directory for usage.
-Need a demo? Take two!
+Look at the example in the `examples/` directory for usage. Did you say demo?
 
-- [Demo 1](http://experiments.muditameta.com/fuzzyDropdown/)
-- [Demo 2](http://experiments.muditameta.com/fuzzyDropdown2/)
+- [Demo](http://codepen.io/zeusdeux/pen/QbVxdq?editors=101)
+
 
 ## Changelog
+
+### 1.0.0
+- Switched from Fuse to [subsequence-search](https://github.com/zeusdeux/subsequence-search) to provide a more predictable and expected filtering experience
 
 ### 0.0.11
 - Bugfixes
@@ -38,25 +40,13 @@ Need a demo? Take two!
 
 ## Installation
 
-#### Recommended installation method
-
 ```javascript
-bower install fuzzyDropdown
+npm install fuzzy-dropdown
 ```
+If you plan on using `fuzzy-dropdown` as a standalone plugin, i.e., include jquery on your page separately followed by including fuzzy-dropdown separately, then include `node_modules/fuzzy-dropdown/dist/fuzzy-dropdown.min.js`.
 
-#### Other methods
+If you plan on importing `fuzzy-dropdown` as a module (for use with `browserify`, etc) then just go ahead and `require('fuzzy-dropdown')` and it'll work like it's supposed to.
 
-These methods will not install the dependencies (jQuery and Fuse.js). You will have to install them manually and include them before including `fuzzyDropdown`. (Use bower, it's simpler).
-
-```javascript
-//via github
-git clone git@github.com:zeusdeux/fuzzyDropdown.git
-
-//via jquery plugins
-//goto: http://plugins.jquery.com/fuzzyDropdown and download it from there.
-
-//download src/fuzzyDropdown.min.js and include it after jQuery and Fuse in your markup
-```
 
 ## Usage
 
@@ -72,7 +62,7 @@ $( your_select_box_selector ).fuzzyDropdown( options );
 - `arrowUpClass`: Even the arrows are drawn via css and this is the class name that shows the arrow facing up
 - `selectedClass`: Name of the css class that will be used to highlight dropdown items when arrow keys are used to navigate them. It is usually the same as your dropdown list item :hover style.
 - `enableBrowserDefaultScroll` (`false` by default): A boolean value that enables or disables normal browser behaviour (scroll up and down) on arrow up and down presses. You might want to set this to `true` if you have a list that is longer than the current viewport height.
-- Options for Fuse except `searchFn`, `getFn` and `sortFn`. `fuzzyDropdown` defers to the defaults used by Fuse for these options.
+- `transforms`: [Transforms](https://github.com/zeusdeux/subsequence-search#transforms) object passed to subsequence-search. The object is combined with the default ranking transform and run after it.
 
 ```javascript
 $('#fuzzOptionsList').fuzzyDropdown({
@@ -112,7 +102,7 @@ $('#fuzzOptionsList').fuzzyDropdown({
 
 ### The styling
 
-`fuzzyDropdown` by itself does no styling. All the styling is controlled via css.
+`fuzzy-dropdown` by itself does no styling. All the styling is controlled via css.
 
 This gives you complete freedom to style your dropdown however you want and it'll all *just work*. Below is some example css.
 
