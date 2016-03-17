@@ -92,7 +92,7 @@ function fuzzyDropdownInit($, subSearch) {
       $dropdownUL.append(html);
     }
     // add the no results element
-    $dropdownUL.append('<li id="' + noResultsId + '" style="display:none;">No results found.</li>');
+    $dropdownUL.prepend('<li id="' + noResultsId + '" style="display:none;">No results found.</li>');
 
     // store lis for future use
     $lis = $dropdownUL.children('li');
